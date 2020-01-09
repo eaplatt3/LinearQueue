@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinearQueue
 {
+    //Boiler Plate Linear Queue
     class Queue
     {
         //Variable Declations
@@ -49,12 +50,14 @@ namespace LinearQueue
         //Method to Remove Items from the Queue
         public int dequeue()
         {
+            //Checks if the Queue is Emplty
             if(front == back + 1)
             {
                 Console.WriteLine("Queue is Empty");
                 return -1;
             }
 
+            //If Queue is not Empty Removed Items From Queue
             else
             {
                 Console.WriteLine(element[front] + " Dequeued from Queue");
@@ -63,6 +66,26 @@ namespace LinearQueue
                 Console.WriteLine("Front Item is {0}", element[front]);
                 Console.WriteLine("Back Item is {0} ", element[back]);
                 return p;
+            }
+        }
+
+        //Method to Print Items in Queue
+        public void printQueue()
+        {
+            //Checks if Queue is Empty
+            if(front == back + 1)
+            {
+                Console.WriteLine("Queue is Empty");
+                return;
+            }
+
+            //Prints All Items in Queue
+            else
+            {
+                for(int i = front; i <= back; i++)
+                {
+                    Console.WriteLine(element[i] + " Enqueued to Queue");
+                }
             }
         }
         #endregion
