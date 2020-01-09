@@ -8,13 +8,16 @@ namespace LinearQueue
 {
     class Queue
     {
-        //Variable Declations 
+        //Variable Declations
+        #region
         private int[] element;
         private int front;
         private int back;
         private int max;
+        #endregion
 
         //Constructor
+        #region
         public Queue(int size)
         {
             element = new int[size];
@@ -22,10 +25,14 @@ namespace LinearQueue
             back = -1;
             max = size;
         }
+        #endregion
 
-        //Method to add items to the Queue
+        //Methods
+        #region
+        //Method to Add Items to the Queue
         public void enqueue(int item)
         {
+            //If Queue is Full Prints "Queue Overflow"
             if(back == max - 1)
             {
                 Console.WriteLine("Queue Overflow");
@@ -37,6 +44,27 @@ namespace LinearQueue
             {
                 element[++back] = item;
             }
-        } 
+        }
+
+        //Method to Remove Items from the Queue
+        public int dequeue()
+        {
+            if(front == back + 1)
+            {
+                Console.WriteLine("Queue is Empty");
+                return -1;
+            }
+
+            else
+            {
+                Console.WriteLine(element[front] + " Dequeued from Queue");
+                int p = element[front++];
+                Console.WriteLine();
+                Console.WriteLine("Front Item is {0}", element[front]);
+                Console.WriteLine("Back Item is {0} ", element[back]);
+                return p;
+            }
+        }
+        #endregion
     }
 }
